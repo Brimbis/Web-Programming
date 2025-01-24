@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="Brandon Hurt">
+    <title>Grid Layout</title>
+    <style>
+        /* Grid Container */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 1 Fraction */
+            gap: 10px;
+            background-color: #d5f5e3;
+            padding: 10px;
+        }
+
+        /* Grid Items */
+        .grid-item {
+            background-color: #48c9b0;
+            padding: 20px;
+            border: 2px solid #16a085;
+            border-radius: 5px;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .grid-item:hover {
+            transition: 0.3s;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <h1>Grid Layout Example</h1>
+    <div class="grid-container">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+    </div>
+</body>
+</html>

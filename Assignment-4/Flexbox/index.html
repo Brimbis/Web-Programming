@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="Brandon Hurt">
+    <title>Flexbox Example</title>
+    <style>
+
+        /* Flex Container */
+        .flex-container {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            height: auto;
+            padding: 20px;
+            background: linear-gradient(90deg, #f7dc6f, #f39c12);
+            border: 2px solid #d35400;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Flex Item */
+        .flex-item {
+            background-color: #5dade2;
+            padding: 30px;
+            border: 2px solid #21618c;
+            border-radius: 10px;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        /* Hover effect to the item...*/
+        .flex-item:hover {
+            transform: scale(1.1);
+            background-color: #2875a6;
+            transition: 0.3s;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Flexbox Layout Example</h1>
+    <div class="flex-container">
+        <div class="flex-item">Item 1</div>
+        <div class="flex-item">Item 2</div>
+        <div class="flex-item">Item 3</div>
+        <div class="flex-item">Item 4</div>
+        <div class="flex-item">Item 5</div>
+
+    </div>
+</body>
+</html>

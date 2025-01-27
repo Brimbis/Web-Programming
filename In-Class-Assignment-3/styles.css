@@ -1,6 +1,16 @@
 * {
     font-family: Arial, Helvetica, sans-serif;
 }
+html, body{
+    height: 100%;
+    margin: 0;
+}
+.container {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
 .box {
     display: flex;
     justify-content: center;

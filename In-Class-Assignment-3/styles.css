@@ -18,7 +18,7 @@ html, body{
     flex-direction: column;
     border: 3px solid white;
     border-radius: 25px; 
-    width: 550px;
+    width: 520px;
     height: 250px;
     color: white;
     background: linear-gradient(45deg, rgb(15, 0, 101), #006fd7);
@@ -27,11 +27,12 @@ html, body{
 }
 .name {
     font-size: 36px;
-    margin-top: 20px;
+    margin-top: 0px;
     margin-bottom: 10px;
     border-bottom: 2px solid lightblue;
     transition: 0.3s;
     padding: 5px;
+    font-weight: bold;
 }
 .name:hover {
     transform: scale(1.1);
@@ -39,7 +40,7 @@ html, body{
 .title {
     font-size: 20px;
     color: lightblue;
-    margin: 0px;
+    margin-bottom: 30px;
 }
 .contact-info {
     width: 150px;
@@ -48,6 +49,7 @@ html, body{
     padding-right: 40px;
     border-right: 2px solid lightblue;
     transition: 0.3s;
+    font-weight: bold;
 }
 .contact-info:hover {
     color: lightblue;

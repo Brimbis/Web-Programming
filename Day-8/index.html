@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Brandon Hurt">
+    <title>My First Form</title>
+    <script> 
+        function getRandomNumber() {
+            return Math.round(Math.random() * 100);
+        }
+
+        function generateEmail(form) {
+            document.getElementById("email").innerHTML = form.elements["first"].value.toLowerCase() + form.elements["last"].value.toLowerCase() + getRandomNumber() + "@atu.edu";
+
+            form.reset();
+        }
+    </script>
+</head>
+<body>
+    <form>
+        First Name:
+        <input type="text" id="first" placeholder="Enter your first name"><br>
+
+        Last Name: 
+        <input type="text" id="last" placeholder="Enter your last name"><br>
+
+        <input type="button" value="Generate Email" onclick="generateEmail(this.form);">
+
+        <p id="email"></p>
+
+    </form>
+</body>
+</html>

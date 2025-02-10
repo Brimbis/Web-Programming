@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change BG color</title>
+    <script>
+        function changeBGColor() {
+            document.getElementById("body").style.backgroundColor = getRandomColor();
+        }
+
+        function getRandomColor() {
+            let letters="0123456789ABCDEF";
+            let color="#";
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+
+            return color;
+        }
+    </script>
+</head>
+<body id="body">
+    <button id="BGButton" onclick="changeBGColor();">Change BG Color</button>
+</body>
+</html>

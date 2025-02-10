@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Brandon Hurt">
+    <title>JS Form</title>
+    <script src="script.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vh;
+            margin: 0;
+            background-image: linear-gradient(rgb(0, 0, 92), rgb(46, 0, 105));
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 100px 300px;
+            font-family: Arial, Helvetica, sans-serif;
+            border: 5px solid #00aeff;
+            border-radius: 20px;
+            padding: 20px;
+            background-color: rgb(1, 54, 133);
+        }
+
+        .label {
+            margin: 15px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        #name, #email {
+            margin: 5px;
+            text-align: center;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        #age {
+            margin: 5px;
+            width: 30%;
+            text-align: center;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        #name:hover, #email:hover, #age:hover {
+            color: navy;
+            border-color: lightblue;
+        }
+
+        #submit {
+            grid-column: span 2;
+            height: 40px;
+            width: 50%;
+            justify-self: center;
+            margin: 30px;
+            margin-bottom: 0px;
+        }
+
+        #submit:hover {
+            background-color: rgb(0, 132, 255);
+            color: white;
+        }
+
+        #message {
+            grid-column: span 2;
+            justify-self: center;
+            align-self: end;
+            font-size: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <form>
+        <div class="label">Name: </div>
+        <input type="text" id="name" placeholder="Enter your first name" required>
+
+        <div class="label">Email: </div>
+        <input type="text" id="email" placeholder="Enter your email" required>
+
+        <div class="label">Age: </div>
+        <input type="number" id="age" placeholder="Enter your age" min="0" max="100" value="0">
+
+        <input type="button" id="submit" value="Submit" onclick="validateForm(this.form);">
+
+        <p id="message"></p>
+    </form>
+</body>
+</html>

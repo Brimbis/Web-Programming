@@ -5,13 +5,11 @@ let setMessage = (message, color) => {
 
 let highlightField = (field) => {
     field.style.color = "black";
-    field.style.borderColor = "black";
     field.style.backgroundColor = "#FFB6C1";
 }
 
 let resetField = (field) => {
     field.style.color = "black";
-    field.style.borderColor = "black";
     field.style.backgroundColor = "white";
 }
 

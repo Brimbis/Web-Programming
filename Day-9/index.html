@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Brandon Hurt">
+    <title>My First JSON!</title>
+    <script>
+        let companies = 
+            `[{
+                "name":"Big Corporation",  
+                "numberOfEmployees":1000,
+                "CEO":"Mary", 
+                "rating":3.6
+            },
+            {
+                "name":"Small Startup", 
+                "numberOfEmployees":10, 
+                "CEO":null, 
+                "rating":4.3
+            }]`
+
+            console.log(companies);
+            companies = JSON.parse(companies);
+            console.log(companies[1].rating + " " + companies[0].rating);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

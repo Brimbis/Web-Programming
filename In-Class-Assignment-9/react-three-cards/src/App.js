@@ -2,11 +2,11 @@ import React from 'react';
 import Card from './Card.js';
 import './App.css';
 
-function App() {
+export default function App() {
   const cards = [
-    {title: "Card 1", content: "First", color: "white"}, 
-    {title: "Card 2", content: "Second", color: "gray"}, 
-    {title: "Card 3", content: "Third", color: "black"}
+    {title: "Card 1", content: "First", color: "red"}, 
+    {title: "Card 2", content: "Second", color: "green"}, 
+    {title: "Card 3", content: "Third", color: "blue"}
   ];
 
   return (
@@ -19,5 +19,3 @@ function App() {
     </div>
   );
 }
-
-export default App();

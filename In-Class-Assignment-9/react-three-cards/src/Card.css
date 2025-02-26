@@ -6,4 +6,19 @@
     text-align: center;
     color: aliceblue;
     margin: 10px;
+    transition: 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+button {
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    color: black;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 50%;
 }

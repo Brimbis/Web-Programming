@@ -1,0 +1,50 @@
+{
+    "happy": {
+        "emoji": "🙂",
+        "color": "seagreen",
+        "maincolor": "mediumspringgreen", 
+        "description": "It makes me happy to spend time with my cat Soup.",
+        "image": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjZiZHFpM3ZraW5rNGpkMDM3Z3UwdWYzeWJxeWFzNmtzdzYwNGRlZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/aQwvKKi4Lv3t63nZl9/giphy.gif",
+        "story": ""
+    },
+    "excited": {
+        "emoji": "😁",
+        "color": "dodgerblue",
+        "maincolor": "lightblue", 
+        "description": "It makes me excited to watch my new favorite shows when they release.",
+        "image": "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2FhdWZtZHRxOWl5MnM1dXRnMWlyMWwwOWxxdXp4c3Z1eGw0d25odyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/G1W0LQ2SU6PWiA3Qee/giphy.gif",
+        "story": ""
+    },
+    "bored": {
+        "emoji": "😒",
+        "color": "lightslategray",
+        "maincolor": "white", 
+        "description": "I am bored whenever I no longer have anything to do in my favorite games.",
+        "image": "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExN29nZHJzdnlzemdjeXk2djdtNmRrcnVqM29la3FmbmI0ZWdubjYweCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2lsuxZberrcac/giphy.gif",
+        "story": ""
+    },
+    "cool": {
+        "emoji": "😎",
+        "color": "firebrick",
+        "maincolor": "salmon", 
+        "description": "I feel cool creating projects to show off to people.",
+        "image": "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2Y4cGV3bnR5OTIwaTZ6bTFndXFjNWlyM2ZpZWV2eGNpZWk3dGppbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/wBSsIKHZB1jb6log86/giphy.gif",
+        "story": ""
+    },
+    "loving": {
+        "emoji": "😍",
+        "color": "rosybrown",
+        "maincolor": "mistyrose", 
+        "description": "I feel loving towards my girlfriend Brittany, who I have had the pleasure of spending over a year with now. ",
+        "image": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJpeWVleDdyenQybWh5dW5mdXpmdjZ6Y3Zqdnl6cm45ajc2aHZtbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MDJ9IbxxvDUQM/giphy.gif",
+        "story": ""
+    },
+    "sad": {
+        "emoji": "😢",
+        "color": "rebeccapurple",
+        "maincolor": "plum", 
+        "description": "I feel sad whenever I have to leave home for long periods of time.",
+        "image": "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTYwenQyYTl4Z2V1bDF1bTE0OGNjZ296a2xoZGE0M3kxbnVsc2g2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/OPU6wzx8JrHna/giphy.gif",
+        "story": ""
+    }
+}

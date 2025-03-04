@@ -3,48 +3,48 @@
         "emoji": "🙂",
         "color": "seagreen",
         "maincolor": "mediumspringgreen", 
-        "description": "It makes me happy to spend time with my cat Soup.",
-        "image": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjZiZHFpM3ZraW5rNGpkMDM3Z3UwdWYzeWJxeWFzNmtzdzYwNGRlZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/aQwvKKi4Lv3t63nZl9/giphy.gif",
-        "story": ""
+        "description": "It makes me happy to spend time with my cat, Soup.",
+        "image": "soup",
+        "story": "I received soup from the Cat Delivery System, also known as the CDS, in around September of 2024. Soup is now a whopping nine pounds and a really good boy. He loves to have his head and his chin scratched, but also loves his personal space, much like myself. He's been a wonderful addition to the family and I love him to death, even when he get's a little hangry (hungry-angry) from time to time. "
     },
     "excited": {
         "emoji": "😁",
         "color": "dodgerblue",
         "maincolor": "lightblue", 
         "description": "It makes me excited to watch my new favorite shows when they release.",
-        "image": "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2FhdWZtZHRxOWl5MnM1dXRnMWlyMWwwOWxxdXp4c3Z1eGw0d25odyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/G1W0LQ2SU6PWiA3Qee/giphy.gif",
-        "story": ""
+        "image": "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmFwanMwc3Vqc3RkbmV4em4ybWYya3YwdGUxMXl5Y2Z1bGJ0eWQ5YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/40dEau6bZRO3S/giphy.gif",
+        "story": "I have most recently watched Breaking Bad, which is a phenomenal show on its own, and now I have began watching \"Better Call Saul\" on Netflix. It's a slower paced show than Breaking Bad but expands on the universe the show is set in. Overall it's been a fun new show and I look forward to watching the rest of it."
     },
     "bored": {
         "emoji": "😒",
         "color": "lightslategray",
         "maincolor": "white", 
         "description": "I am bored whenever I no longer have anything to do in my favorite games.",
-        "image": "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExN29nZHJzdnlzemdjeXk2djdtNmRrcnVqM29la3FmbmI0ZWdubjYweCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2lsuxZberrcac/giphy.gif",
-        "story": ""
+        "image": "https://store-images.s-microsoft.com/image/apps.54574.14143081164842053.3ed0ca8b-d0ca-48af-9431-74e141bdd9ff.00560713-e7ae-4d29-9dcd-98f2cde17d0a?q=90&w=480&h=270",
+        "story": "I have most recently completed Outer Wilds, which is a space simulation / exploration game with a highly intricate story. It was incredibly fun to play through and explore more of the world and its mysteries. I would highly recommend this game to anyone who loves space and exploration. However, now that I have finished the game, I no longer get to enjoy it like I was able to for the first time."
     },
     "cool": {
         "emoji": "😎",
         "color": "firebrick",
         "maincolor": "salmon", 
         "description": "I feel cool creating projects to show off to people.",
-        "image": "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2Y4cGV3bnR5OTIwaTZ6bTFndXFjNWlyM2ZpZWV2eGNpZWk3dGppbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/wBSsIKHZB1jb6log86/giphy.gif",
-        "story": ""
+        "image": "spitzer",
+        "story": "My most recent project that I have completed was my level \"SPITZER\", which I created completely in the game Geometry Dash. This project was started two years ago and over the course of the winter break I came back and finished the project. A total of 320 hours were spent working on the project and I'm very happy with how it turned out. A video of the level can be found if you click the image above."
     },
     "loving": {
         "emoji": "😍",
         "color": "rosybrown",
         "maincolor": "mistyrose", 
         "description": "I feel loving towards my girlfriend Brittany, who I have had the pleasure of spending over a year with now. ",
-        "image": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJpeWVleDdyenQybWh5dW5mdXpmdjZ6Y3Zqdnl6cm45ajc2aHZtbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MDJ9IbxxvDUQM/giphy.gif",
-        "story": ""
+        "image": "brittany",
+        "story": "Brittany and I have been together for over a year now. Relationships are a lot of work but worth the effort, at least that's what I have learned. We most recently went on a trip to Georgia to spend time with her Grandparents. We also went to see the Georgia Aquarium, which was a one of a kind experience."
     },
     "sad": {
         "emoji": "😢",
         "color": "rebeccapurple",
         "maincolor": "plum", 
         "description": "I feel sad whenever I have to leave home for long periods of time.",
-        "image": "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTYwenQyYTl4Z2V1bDF1bTE0OGNjZ296a2xoZGE0M3kxbnVsc2g2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/OPU6wzx8JrHna/giphy.gif",
-        "story": ""
+        "image": "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2xkNDd5cTN5cGltM2RxM2dibGFlcml0cjFtNm5heWt3Mm5hZWFuaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/TydZAW0DVCbGE/giphy.gif",
+        "story": "I have an upcoming deployment to the Mexico Border with the Army National Guard. I am sad that I will have to spend a year away from home, but I'm excited for the new experience that's quickly approaching. I leave in October with the rest of my unit to Texas, which is one of the places I will be stationed. "
     }
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import moods from './Moods.json';
 import './MoodTracker.css';
 
@@ -8,9 +8,22 @@ export default function MoodTracker() {
     const [color, setColor] = useState(moods.happy.color);
     const [mainColor, setMainColor] = useState(moods.happy.maincolor);
     const [description, setDescription] = useState(moods.happy.description);
-    const [image, setImage] = useState(moods.happy.image);
+    const [image, setImage] = useState("/soup.jpeg");
     const [story, setStory] = useState(moods.happy.story);
     const [animationClass, setAnimationClass] = useState('slide-in');
+    const [showSpitzer, setShowSpitzer] = useState(false);
+
+    useEffect(() => {
+        if (currentMood === moods.cool.emoji) {
+            const timer = setTimeout(() => {
+                setShowSpitzer(true);
+            }, 500);
+    
+            return () => clearTimeout(timer);
+        } else {
+            setShowSpitzer(false);
+        }
+    }, [currentMood]);
 
     const handleMoodChange = (mood) => {
         if (currentMood !== mood.emoji) {
@@ -22,15 +35,29 @@ export default function MoodTracker() {
                 setColor(mood.color);
                 setMainColor(mood.maincolor);
                 setDescription(mood.description);
-                setImage(mood.image);
                 setStory(mood.story);
                 setAnimationClass('slide-in');
+
+                // Images
+                switch (mood.image) {
+                    case "spitzer":
+                        setImage("/SPITZER.png");
+                        break;
+                    case "soup":
+                        setImage("/soup.jpeg");
+                        break;
+                    case "brittany":
+                        setImage("/brittany.jpeg");
+                        break;
+                    default:
+                        setImage(mood.image);
+                }
             }, 500);
         }
     };
 
     return (
-        <div className='container' style={{ backgroundColor: color, color: mainColor }}>
+        <div className='container' style={{ background: `linear-gradient(to bottom, ${color}, rgba(0, 0, 0, 0.9))`, color: mainColor }}>
             <h1>Mood Tracker</h1>
             <p>Current Mood: <br/><b>{emoji}</b></p>
 
@@ -49,14 +76,21 @@ export default function MoodTracker() {
                     <p style={{marginBottom: "40px"}}>{description}</p>
                 </div>
                 <div>
-                    <img src={image} alt="Mood representation" style={{marginBottom: "20px"}}/>
+                {currentMood !== moods.cool.emoji ? (
+                    <img src={image} alt="Mood representation"/>
+                ) : (
+                    showSpitzer && (
+                        <a href="https://www.youtube.com/watch?v=3j5c__Usw50">
+                            <img src="/SPITZER.png" alt="SPITZER" style={{ borderColor: mainColor }} />
+                        </a>
+                    )
+                )}
                 </div>
                 <div style={{gridColumn: "span 2"}}>
                     <h2>Short Story</h2>
                     <p>{story}</p>
                 </div>
             </div>
-
         </div>
     );
 }

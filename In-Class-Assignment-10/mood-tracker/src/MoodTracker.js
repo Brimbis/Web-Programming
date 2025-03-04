@@ -71,23 +71,21 @@ export default function MoodTracker() {
             </div>
 
             <div className={`mood-content ${animationClass}`}>
-                <div style={{alignSelf: "center", justifySelf: "center", textAlign: "left"}}>
-                    <h2>Description: </h2>
-                    <p style={{marginBottom: "40px"}}>{description}</p>
-                </div>
                 <div>
-                {currentMood !== moods.cool.emoji ? (
+                {currentMood !== moods.cool.emoji ? ( // Ternary Operator for image switching
                     <img src={image} alt="Mood representation"/>
                 ) : (
                     showSpitzer && (
-                        <a href="https://www.youtube.com/watch?v=3j5c__Usw50">
-                            <img src="/SPITZER.png" alt="SPITZER" style={{ borderColor: mainColor }} />
-                        </a>
+                        <a href="https://www.youtube.com/watch?v=3j5c__Usw50"><img src="/SPITZER.png" alt="SPITZER" style={{ borderColor: mainColor }} /></a>
                     )
                 )}
                 </div>
+                <div style={{alignSelf: "center", justifySelf: "center", textAlign: "left", paddingLeft: "30px"}}>
+                    <h2>Description: </h2>
+                    <p style={{marginBottom: "40px"}}>{description}</p>
+                </div>
                 <div style={{gridColumn: "span 2"}}>
-                    <h2>Short Story</h2>
+                    <h2>Short Story: </h2>
                     <p>{story}</p>
                 </div>
             </div>

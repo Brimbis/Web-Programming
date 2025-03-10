@@ -12,7 +12,7 @@ const products = [
     {id:1, category:"tech"}, 
     {id:2, category:"food"}, 
     {id:3, category:"affirmations"}, 
-    {id:4, category:"tech"}, 
+    {id:4, category:"vehicles"}, 
 ];
 
 const tech = [

@@ -4,9 +4,13 @@ export default function Logo({link, image, styling}) {
 
     return (
         <>
-            <a href={link}>
+            {link !== '' ? ( // Ternary Operator for image switching
+                <a href={link}>
+                    <img src={image} className={styling}/>
+                </a>
+            ) : (
                 <img src={image} className={styling}/>
-            </a>
+            )}
         </>
     );
 }

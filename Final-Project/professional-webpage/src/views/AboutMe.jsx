@@ -1,6 +1,6 @@
-import './App.css'
-import Logo from './Logo.jsx';
-import BackToTopButton from './BackToTopButton.jsx';
+import '../styles/App.css';
+import Logo from '../components/Logo.jsx';
+import BackToTopButton from '../components/BackToTopButton.jsx';
 
 export default function AboutMe() {
 
@@ -9,27 +9,27 @@ export default function AboutMe() {
     <div className='h-full w-full bg-indigo-950 flex justify-center'>
         <div className='font-mono text-blue-100 flex flex-col items-center max-w-4xl'>
           <header className='bg-indigo-400 text-6xl mt-10 w-screen text-center flex flex-col items-center border-t-8 border-b-8 border-indigo-500 shadow-2xl'>
-            <img className='max-h-30 mt-5 rounded-full shadow-2xl hover:-rotate-20 hover:scale-110 transition' src='./src/assets/profile-image.png' alt='profile-image'/>
+            <img className='max-h-30 mt-5 rounded-full shadow-2xl hover:-rotate-20 hover:scale-110 transition' src='./src/images/profile-image.png' alt='profile-image'/>
             <h1 className='p-4 border-b-4 border-dashed border-indigo-300'>Brandon Hurt</h1>
             <div className='flex justify-center m-5'>
               <Logo
                 link='https://www.linkedin.com/in/brandon-hurt-49321a354/'
-                image='./src/assets/linkedin-logo.png'
+                image='./src/images/linkedin-logo.png'
                 styling='hover:opacity-70 max-h-10 pr-10 hover:scale-110 transition'
               />
               <Logo
                 link='https://github.com/Brimbis'
-                image='./src/assets/github-logo.png'
+                image='./src/images/github-logo.png'
                 styling='hover:opacity-70 max-h-10 pr-10 hover:scale-110 transition'
               />
               <Logo
                 link='https://discordapp.com/users/263572671424495616'
-                image='./src/assets/discord-logo.png'
+                image='./src/images/discord-logo.png'
                 styling='hover:opacity-70 max-h-12 pr-10 hover:scale-110 transition'
               />
               <Logo
                 link='mailto:brandonhurt208@gmail.com'
-                image='./src/assets/gmail-logo.png'
+                image='./src/images/gmail-logo.png'
                 styling='hover:opacity-70 max-h-15 hover:scale-110 transition pb-1'
               />
             </div>
@@ -46,7 +46,7 @@ export default function AboutMe() {
             <div className="flex justify-center w-full">
               <Logo
                 link=''
-                image='./src/assets/ATU.png'
+                image='./src/images/ATU.png'
                 styling='max-h-30 mt-10 hover:-rotate-10 hover:scale-110 transition drop-shadow-2xl'
               />
             </div>
@@ -57,7 +57,7 @@ export default function AboutMe() {
             <div className="flex justify-center w-full">
               <Logo
                 link=''
-                image='./src/assets/ARNG.png'
+                image='./src/images/ARNG.png'
                 styling='max-h-40 mt-10 hover:-rotate-10 hover:scale-110 transition drop-shadow-2xl'
               />
             </div>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Completed Projects</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <div class="contain mx-auto p-6">
+        <h1 class="text-3xl font-bold mb-4">
+            Completed Projects
+        </h1>
+        <ul id="projects-list" class="space-y-4">
+        </ul>
+    </div>
+
+    <script>
+        fetch("http://localhost:3000/projects")
+        .then(response => response.json())
+        .then(data => {
+            const list = document.getElementById("projects-list");
+            data.forEach(project => {
+                const item = document.createElement("li");
+                item.className = "p-4 bg-white shadow-md rounded-lg";
+                item.innerHTML = `
+                <h2 class="text-xl font-semibold">${project.project_name}</h2>
+                <p>${project.description}</p>
+                <p class="text-gray-500">${project.technologies_used}</p>
+                <a href="${project.project_url}" class="text-blue-500" target="_blank">View</a>
+                `;
+                list.appendChild(item);
+            });
+        });
+    </script>
+
+</body>
+</html>

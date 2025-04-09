@@ -28,6 +28,7 @@ mongoose.connect('mongodb://localhost:27017/blog_db', {
 const postSchema = new mongoose.Schema({
     title: String, 
     body: String, 
+    date: Date, 
 });
 
 const Post = mongoose.model('Post', postSchema);
@@ -45,9 +46,10 @@ app.get('/posts', async (req, res) => {
 
 app.post('/posts', async (req, res) => {
     try {
-        const {title, body} = req.body;
-        const newPost = new Post({title, body});
+        const {title, body, date} = req.body;
+        const newPost = new Post({title, body, date});
         await newPost.save();
+        res.status(200).json({message:'Post added successfully.'});
     } catch(err) {
         res.status(500).json({message: 'Failed to save post.'});
     }
@@ -55,19 +57,28 @@ app.post('/posts', async (req, res) => {
 
 app.put('/posts', async (req, res) => {
     try {
-        const {title, body} = req.body;
-        const editedPost = await Post.updateOne(req._id, {title, body});
-        await editedPost.save();
-    } catch(err) {
-        res.status(500).json({message: 'Failed to edit post.'});
+        const { _id, title, body, date } = req.body;
+        const result = await Post.updateOne({ _id }, { title, body, date });
+
+        if (result.matchedCount === 0) {
+            return res.status(404).json({ message:'Post not found.'});
+        }
+
+        res.status(200).json({message:'Post edited successfully.'});
+    } catch (err) {
+        res.status(500).json({message:'Failed to edit post.'});
     }
 });
 
 app.delete('/posts', async (req, res) => {
     try {
-        await Post.deleteOne(req._id);
-    } catch(err) {
-        res.status(500).json({message: 'Failed to delete post.'})
+        const result = await Post.deleteOne({ _id: req.body._id });
+        if (result.deletedCount === 0) {
+            return res.status(404).json({ message: 'Post not found.' });
+        }
+        res.status(200).json({message:'Post deleted successfully.'});
+    } catch (err) {
+        res.status(500).json({message:'Failed to delete post.'});
     }
 });
 

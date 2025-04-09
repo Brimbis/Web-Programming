@@ -9,7 +9,7 @@ export default function App() {
     axios.get('http://localhost:5000/posts')
     .then(res => setPosts(res.data))
     .catch(err => console.error('Error fetching posts: ', err));
-  }, []);
+  }, [posts]);
 
   const handleChange = (e) => {
     setForm({...form, [e.target.name]: e.target.value});
@@ -24,6 +24,21 @@ export default function App() {
     })
     .catch(err => console.error('Error submitting the post: ', err));
   };
+
+  const handleDelete = (_id) => {
+    const confirmDelete = window.confirm('Are you sure you want to delete this post?');
+
+    if (confirmDelete) {
+    axios.delete('http://localhost:5000/posts', _id)
+    .then(res => setPosts(posts.filter(post => post._id !== _id)))
+    .catch(err => console.error('Error deleting the post: ', err));
+    }
+  };
+
+  const handleEdit = (e) => {
+    axios.put('http://localhost:5000/posts', { data: {id: e.target._id }})
+    .then()
+  }
 
   return (
     <div style={{padding:'20px', maxWidth:'600px', margin:'auto'}}>
@@ -48,9 +63,13 @@ export default function App() {
 
       <h2>Blog Posts</h2>
       {posts.map(post => (
-        <div key={post.id} style ={{border:'1px solid #ccc', padding:'10px', marginBottom:'15px'}}>
+        <div key={post._id} style ={{border:'1px solid #ccc', padding:'10px', marginBottom:'15px'}}>
           <h3>{post.title}</h3>
           <p>{post.body}</p>
+          <div style={{display: 'flex', justifyContent: 'center', marginTop: '10px'}}>
+            <button onClick={() => handleDelete(post._id)} style={{padding:'5px 15px', fontSize:'20px', marginRight:'20px'}}>&#128465;</button>
+            <button onClick={() => handleEdit(post._id)} style={{padding:'5px 15px', fontSize:'20px'}}>&#9998;</button>
+          </div>
         </div>
       ))}
     </div>

@@ -53,6 +53,24 @@ app.post('/posts', async (req, res) => {
     }
 });
 
+app.put('/posts', async (req, res) => {
+    try {
+        const {title, body} = req.body;
+        const editedPost = await Post.updateOne(req._id, {title, body});
+        await editedPost.save();
+    } catch(err) {
+        res.status(500).json({message: 'Failed to edit post.'});
+    }
+});
+
+app.delete('/posts', async (req, res) => {
+    try {
+        await Post.deleteOne(req._id);
+    } catch(err) {
+        res.status(500).json({message: 'Failed to delete post.'})
+    }
+});
+
 // Start server
 
 app.listen(PORT, () => {console.log('Server is running on http://localhost:5000/')});

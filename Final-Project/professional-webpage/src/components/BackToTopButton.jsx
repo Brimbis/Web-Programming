@@ -31,10 +31,13 @@ export default function BackToTopButton() {
                 right:'50px', 
                 height:'50px',
                 width:'50px',  
-                fontSize:'50px', 
+                fontSize:'40px', 
                 cursor:'pointer', 
                 backgroundColor:'#4338CA', 
                 borderRadius:'10px', 
+                borderColor: 'white', 
+                borderWidth: "3px", 
+                color: 'white', 
             }} onClick={scrollUp}>^</button>
         )}
         </div>

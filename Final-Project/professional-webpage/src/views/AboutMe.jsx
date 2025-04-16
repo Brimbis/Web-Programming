@@ -1,8 +1,18 @@
+import {useState, useEffect} from 'react';
 import '../styles/App.css';
 import Logo from '../components/Logo.jsx';
-import BackToTopButton from '../components/BackToTopButton.jsx';
+import axios from 'axios';
 
 export default function AboutMe() {
+  const [info, setInfo] = useState('');
+
+  useEffect(() => {
+    axios.get('http://localhost:5000/info')
+      .then(res => {
+        setInfo(res.data);
+      })
+      .catch(err => console.error('Error fetching info:', err));
+  }, []);
 
     return (
     <>
@@ -10,25 +20,25 @@ export default function AboutMe() {
         <div className='font-mono text-blue-100 flex flex-col items-center max-w-4xl'>
           <header className='bg-indigo-400 text-6xl mt-10 w-screen text-center flex flex-col items-center border-t-8 border-b-8 border-indigo-500 shadow-2xl'>
             <img className='max-h-30 mt-5 rounded-full shadow-2xl hover:-rotate-20 hover:scale-110 transition' src='./src/images/profile-image.png' alt='profile-image'/>
-            <h1 className='p-4 border-b-4 border-dashed border-indigo-300'>Brandon Hurt</h1>
+            <h1 className='p-4 border-b-4 border-dashed border-indigo-300'>{info.name}</h1>
             <div className='flex justify-center m-5'>
               <Logo
-                link='https://www.linkedin.com/in/brandon-hurt-49321a354/'
+                link={info.contactInfo?.linkedin}
                 image='./src/images/linkedin-logo.png'
                 styling='hover:opacity-70 max-h-10 pr-10 hover:scale-110 transition'
               />
               <Logo
-                link='https://github.com/Brimbis'
+                link={info.contactInfo?.github}
                 image='./src/images/github-logo.png'
                 styling='hover:opacity-70 max-h-10 pr-10 hover:scale-110 transition'
               />
               <Logo
-                link='https://discordapp.com/users/263572671424495616'
+                link={info.contactInfo?.discord}
                 image='./src/images/discord-logo.png'
                 styling='hover:opacity-70 max-h-12 pr-10 hover:scale-110 transition'
               />
               <Logo
-                link='mailto:brandonhurt208@gmail.com'
+                link={info.contactInfo?.email}
                 image='./src/images/gmail-logo.png'
                 styling='hover:opacity-70 max-h-15 hover:scale-110 transition pb-1'
               />
@@ -37,7 +47,9 @@ export default function AboutMe() {
           <main className='w-full max-w-3xl flex-col justify-center p-5 m-20 bg-indigo-900 rounded-2xl shadow-2xl text-center'>
             <h2 className='text-4xl mt-5 mb-5 text-center'>Biography</h2>
 
-            <p className='text-lg p-5 mt-5 mb-10 text-left border-l-4'>Hello! My name is Brandon Hurt and I am from Russellville, Arkansas. I am currently a Senior at Arkansas Tech University, and my love for all things technology has led me this far.<br/><br/>I love video games: Some of my favorites include Geometry Dash, Outer Wilds, and Ori. In Geometry Dash I have several projects which can be found on my <a className='text-blue-400 cursor-pointer hover:opacity-70' href='https://www.youtube.com/@brimbis7104'>YouTube</a>.<br/><br/>I love to meet new people and learn new things so feel free to reach out to me!</p>
+            <p className='text-2xl text-blue-300 p-3 mt-5 text-center'>Age: {info.age}</p>
+
+            <p className='text-lg p-5 mt-5 mb-10 text-left border-l-4' dangerouslySetInnerHTML={{ __html: info.biography }}></p>
 
             <div className='m-10 mt-20 border-b-4 border-b-indigo-950 border-dashed'></div>
 
@@ -51,8 +63,7 @@ export default function AboutMe() {
               />
             </div>
 
-            <p className="text-lg p-5 mt-5 mb-10 text-left border-l-4">I am currently a Senior at Arkansas Tech Univeristy, pursuing a Bachelors Degree in Information Technology focused on Web Design, Programming, and Databases.<br/><br/>I have programming experience with HTML, Javascript, CSS, C++, Java, Python, and MySQL. Most of my experience comes from projects inside and outside of school which can be found on my <a className='text-blue-400 cursor-pointer hover:opacity-70' href='https://github.com/Brimbis'>Github</a>.<br/><br/>I am expected to graduate in the Spring of 2027. 
-            </p>
+            <p className="text-lg p-5 mt-5 mb-10 text-left border-l-4" dangerouslySetInnerHTML={{ __html: info.education?.atu }}></p>
 
             <div className="flex justify-center w-full">
               <Logo
@@ -62,12 +73,11 @@ export default function AboutMe() {
               />
             </div>
 
-            <p className="text-lg p-5 mt-5 mb-10 text-left border-l-4">I joined the Arkansas Army National Guard in April of 2022. Since then I have gained experience in Intelligence Analysis through training in beautiful Fort Huachuca, Arizona.<br/><br/>Through my schooling I learned how to effectively synthesize and analyze information to predict future events, as well as effectively communicate that information through breifing. </p>
+            <p className="text-lg p-5 mt-5 mb-10 text-left border-l-4" dangerouslySetInnerHTML={{ __html: info.education?.ngar }}></p>
 
           </main>
           <footer className='mt-10 mb-5 text-center'>
           <br/>2025 Brandon Hurt
-          <BackToTopButton/>
           </footer>
         </div>
       </div>

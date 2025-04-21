@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import '../styles/App.css';
 import Logo from '../components/Logo.jsx';
 import axios from 'axios';
@@ -14,73 +14,86 @@ export default function AboutMe() {
       .catch(err => console.error('Error fetching info:', err));
   }, []);
 
-    return (
-    <>
-    <div className='h-full w-full bg-indigo-950 flex justify-center'>
-        <div className='font-mono text-blue-100 flex flex-col items-center max-w-4xl'>
-          <header className='bg-indigo-400 text-6xl mt-10 w-screen text-center flex flex-col items-center border-t-8 border-b-8 border-indigo-500 shadow-2xl'>
-            <img className='max-h-30 mt-5 rounded-full shadow-2xl hover:-rotate-20 hover:scale-110 transition' src='./src/images/profile-image.png' alt='profile-image'/>
-            <h1 className='p-4 border-b-4 border-dashed border-indigo-300'>{info.name}</h1>
-            <div className='flex justify-center m-5'>
-              <Logo
-                link={info.contactInfo?.linkedin}
-                image='./src/images/linkedin-logo.png'
-                styling='hover:opacity-70 max-h-10 pr-10 hover:scale-110 transition'
-              />
-              <Logo
-                link={info.contactInfo?.github}
-                image='./src/images/github-logo.png'
-                styling='hover:opacity-70 max-h-10 pr-10 hover:scale-110 transition'
-              />
-              <Logo
-                link={info.contactInfo?.discord}
-                image='./src/images/discord-logo.png'
-                styling='hover:opacity-70 max-h-12 pr-10 hover:scale-110 transition'
-              />
-              <Logo
-                link={info.contactInfo?.email}
-                image='./src/images/gmail-logo.png'
-                styling='hover:opacity-70 max-h-15 hover:scale-110 transition pb-1'
-              />
+  return (
+    <div className="min-h-screen w-full bg-gray-800 flex justify-center px-4">
+      <div className="font-sans text-blue-100 flex flex-col items-center max-w-4xl w-full">
+        
+        <header className="bg-indigo-800 text-5xl mt-20 w-full text-center rounded-xl shadow-xl p-3 border border-indigo-700">
+          <img 
+            className="h-40 w-40 object-cover rounded-full mx-auto shadow-lg hover:scale-105 transition-transform duration-300" 
+            src="./src/images/profile-image.png" 
+            alt="profile" 
+          />
+          <h1 className="mt-6 mb-6 text-blue-100 font-semibold text-5xl tracking-wide">{info.name}</h1>
+          <div className="flex justify-center space-x-6 mt-4">
+            <Logo
+              link={info.contactInfo?.linkedin}
+              image="./src/images/linkedin-logo.png"
+              styling="hover:opacity-80 h-8 transition-transform duration-300 hover:scale-110"
+            />
+            <Logo
+              link={info.contactInfo?.github}
+              image="./src/images/github-logo.png"
+              styling="hover:opacity-80 h-8 transition-transform duration-300 hover:scale-110"
+            />
+            <Logo
+              link={info.contactInfo?.discord}
+              image="./src/images/discord-logo.png"
+              styling="hover:opacity-80 h-9 transition-transform duration-300 hover:scale-110"
+            />
+            <Logo
+              link={info.contactInfo?.email}
+              image="./src/images/gmail-logo.png"
+              styling="hover:opacity-80 h-10 transition-transform duration-300 hover:scale-110"
+            />
+          </div>
+        </header>
+
+        <main className="w-full bg-indigo-900/80 backdrop-blur-sm rounded-xl shadow-xl p-10 mt-14 text-left text-blue-100 max-w-5xl mx-auto">
+            <h2 className="text-4xl font-bold mb-4 text-center text-indigo-100">Biography</h2>
+            <p className="text-xl text-center mb-6 text-indigo-300">Age: {info.age}</p>
+            <p
+              className="text-lg leading-relaxed border-l-4 border-indigo-400 pl-6 text-blue-200"
+              dangerouslySetInnerHTML={{ __html: info.biography }}
+            />
+
+            <div className="border-t-4 border-indigo-500 opacity-70 my-16 mx-4 rounded-sm"></div>
+
+
+            <h2 className="text-4xl font-bold mb-10 text-center text-indigo-100">Education</h2>
+
+            <div className="flex flex-col items-center space-y-14">
+              <div className="text-center max-w-3xl">
+                <Logo
+                  link=""
+                  image="./src/images/ATU.png"
+                  styling="h-24 mx-auto mb-4 transition-transform duration-300 hover:scale-105"
+                />
+                <p
+                  className="text-lg leading-relaxed border-l-4 border-indigo-400 pl-6 text-blue-200"
+                  dangerouslySetInnerHTML={{ __html: info.education?.atu }}
+                />
+              </div>
+
+              <div className="text-center max-w-3xl">
+                <Logo
+                  link=""
+                  image="./src/images/ARNG.png"
+                  styling="h-30 mx-auto mb-4 transition-transform duration-300 hover:scale-105"
+                />
+                <p
+                  className="text-lg leading-relaxed border-l-4 border-indigo-400 pl-6 text-blue-200"
+                  dangerouslySetInnerHTML={{ __html: info.education?.ngar }}
+                />
+              </div>
             </div>
-          </header>
-          <main className='w-full max-w-3xl flex-col justify-center p-5 m-20 bg-indigo-900 rounded-2xl shadow-2xl text-center'>
-            <h2 className='text-4xl mt-5 mb-5 text-center'>Biography</h2>
+        </main>
 
-            <p className='text-2xl text-blue-300 p-3 mt-5 text-center'>Age: {info.age}</p>
 
-            <p className='text-lg p-5 mt-5 mb-10 text-left border-l-4' dangerouslySetInnerHTML={{ __html: info.biography }}></p>
-
-            <div className='m-10 mt-20 border-b-4 border-b-indigo-950 border-dashed'></div>
-
-            <h2 className='text-4xl mb-5 text-center'>Education</h2>
-
-            <div className="flex justify-center w-full">
-              <Logo
-                link=''
-                image='./src/images/ATU.png'
-                styling='max-h-30 mt-10 hover:-rotate-10 hover:scale-110 transition drop-shadow-2xl'
-              />
-            </div>
-
-            <p className="text-lg p-5 mt-5 mb-10 text-left border-l-4" dangerouslySetInnerHTML={{ __html: info.education?.atu }}></p>
-
-            <div className="flex justify-center w-full">
-              <Logo
-                link=''
-                image='./src/images/ARNG.png'
-                styling='max-h-40 mt-10 hover:-rotate-10 hover:scale-110 transition drop-shadow-2xl'
-              />
-            </div>
-
-            <p className="text-lg p-5 mt-5 mb-10 text-left border-l-4" dangerouslySetInnerHTML={{ __html: info.education?.ngar }}></p>
-
-          </main>
-          <footer className='mt-10 mb-5 text-center'>
-          <br/>2025 Brandon Hurt
-          </footer>
-        </div>
+        <footer className="mt-10 mb-5 text-sm text-gray-400 text-center">
+          &copy; 2025 Brandon Hurt
+        </footer>
       </div>
-    </>
-  )
+    </div>
+  );
 }

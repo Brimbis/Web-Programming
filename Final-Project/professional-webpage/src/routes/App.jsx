@@ -3,12 +3,16 @@ import '../styles/App.css';
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 import BackToTopButton from '../components/BackToTopButton.jsx';
 import AboutMe from '../views/AboutMe.jsx';
+import Projects from '../views/Projects.jsx';
+import Experience from '../views/Experience.jsx';
+import ContactInfo from '../views/ContactInfo.jsx';
 
 export default function App() {
+  const [navstyling, setNavstyling] = useState('bg-indigo-700 text-white font-semibold px-4 py-2 rounded-md transition');
+  const [navstylingHover, setNavstylingHover] = useState('hover:bg-gray-800 px-4 py-2 rounded-md transition');
 
   return (
     <Router>
-      {/* Navigation Bar */}
       <nav className="bg-gray-900 text-white fixed top-0 w-full z-50 shadow-md">
         <ul className="flex justify-center space-x-8 py-4">
           <li>
@@ -16,7 +20,9 @@ export default function App() {
               to="/"
               end
               className={({ isActive }) =>
-                isActive ? 'text-yellow-400 font-bold underline' : 'hover:underline'
+                isActive 
+                  ? navstyling
+                  : navstylingHover
               }
             >
               About Me
@@ -26,7 +32,9 @@ export default function App() {
             <NavLink
               to="/projects"
               className={({ isActive }) =>
-                isActive ? 'text-yellow-400 font-bold underline' : 'hover:underline'
+                isActive 
+                  ? navstyling
+                  : navstylingHover
               }
             >
               Projects
@@ -36,7 +44,9 @@ export default function App() {
             <NavLink
               to="/experience"
               className={({ isActive }) =>
-                isActive ? 'text-yellow-400 font-bold underline' : 'hover:underline'
+                isActive 
+                  ? navstyling
+                  : navstylingHover
               }
             >
               Experience
@@ -46,7 +56,9 @@ export default function App() {
             <NavLink
               to="/contact"
               className={({ isActive }) =>
-                isActive ? 'text-yellow-400 font-bold underline' : 'hover:underline'
+                isActive 
+                  ? navstyling
+                  : navstylingHover
               }
             >
               Contact Info
@@ -55,13 +67,12 @@ export default function App() {
         </ul>
       </nav>
 
-      {/* Page content */}
       <div className="mt-14">
         <Routes>
-          <Route path="/" element={<AboutMe />} />
-          <Route path="/projects" element={<h2 className="text-3xl font-bold">Projects</h2>} />
-          <Route path="/experience" element={<h2 className="text-3xl font-bold">Experience</h2>} />
-          <Route path="/contact" element={<h2 className="text-3xl font-bold">Contact Info</h2>} />
+          <Route path="/" element={<AboutMe/>}/>
+          <Route path="/projects" element={<Projects/>}/>
+          <Route path="/experience" element={<Experience/>}/>
+          <Route path="/contact" element={<ContactInfo/>}/>
         </Routes>
       </div>
 

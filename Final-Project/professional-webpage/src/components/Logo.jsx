@@ -8,8 +8,11 @@ export default function Logo({link, path, styling}) {
         if (styling == "link") {
             setStyle('hover:opacity-80 h-10 transition-transform duration-300 hover:scale-110');
         }
-        else if (styling = "image-small") {
+        else if (styling == "image-small") {
             setStyle('h-30 mx-auto mb-10 transition-transform duration-300 hover:scale-105');
+        }
+        else if (styling == 'profile') {
+            setStyle("h-40 w-40 object-cover rounded-full mx-auto shadow-lg hover:scale-105 transition-transform duration-300");
         }
     }, []);
 

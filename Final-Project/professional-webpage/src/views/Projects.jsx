@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
 import '../styles/App.css';
+import Card from '../components/Card';
 import axios from 'axios';
 
 export default function Projects() {
@@ -14,8 +15,24 @@ export default function Projects() {
     }, []);
 
     return (
-        <>
-            <h2 className="text-3xl font-bold">Projects</h2>
-        </>
-    )
+        <div className="min-h-screen w-full bg-gray-800 flex justify-center px-4">
+            <div className="font-sans text-blue-100 flex flex-col items-center max-w-5xl w-full py-10">
+                <h2 className="text-4xl font-bold mb-10">Projects</h2>
+        
+                {/* Map through projects */}
+                {projects.map((project, index) => (
+                <Card
+                    key={index}
+                    type="project"
+                    title={project.name}
+                    description={project.description}
+                    images={project.images}
+                    date={project.date}
+                    technologies={project.technologies}
+                    link={project.link}
+                />
+                ))}
+            </div>
+        </div>
+    );
 }

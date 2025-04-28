@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import '../styles/App.css';
 import Logo from '../components/Logo.jsx';
-import ProfileCard from '../components/ProfileCard.jsx';
+import Card from '../components/Card.jsx';
 import axios from 'axios';
 
 export default function AboutMe() {
@@ -21,31 +21,30 @@ export default function AboutMe() {
         
 
         <header className="bg-indigo-800 text-5xl mt-20 w-full text-center rounded-xl shadow-xl p-3 border border-indigo-700">
-          <img 
-            className="h-40 w-40 object-cover rounded-full mx-auto shadow-lg hover:scale-105 transition-transform duration-300" 
-            src="../images/profile-image.png"
-            alt="profile"
+          <Logo
+            path='../images/profile/profile-image.jpeg'
+            styling='profile'
           />
           <h1 className="mt-6 mb-6 text-blue-100 font-semibold text-5xl tracking-wide">{info.name}</h1>
           <div className="flex justify-center space-x-6 mt-4">
             <Logo
               link={info.contactInfo?.linkedin}
-              path="../images/linkedin-logo.png"
+              path="../images/profile/linkedin-logo.png"
               styling="link"
             />
             <Logo
               link={info.contactInfo?.github}
-              path="../images/github-logo.png"
+              path="../images/profile/github-logo.png"
               styling="link"
             />
             <Logo
               link={info.contactInfo?.discord}
-              path="../images/discord-logo.png"
+              path="../images/profile/discord-logo.png"
               styling="link"
             />
             <Logo
               link={info.contactInfo?.email}
-              path="../images/gmail-logo.png"
+              path="../images/profile/gmail-logo.png"
               styling="link"
             />
           </div>
@@ -53,29 +52,32 @@ export default function AboutMe() {
 
         <main className="w-full bg-indigo-900/80 backdrop-blur-sm rounded-xl shadow-xl p-10 mt-14 text-left text-blue-100 max-w-5xl mx-auto">
           
-          <ProfileCard
+          <Card
+            type='profile'
             title='Biography'
-            path={`Age: ${info.age}`}
+            altTitle={`Age: ${info.age}`}
             description={info.biography}
           />
           
-          <div className="border-t-4 border-indigo-500 opacity-70 my-16 mx-4 rounded-sm"></div>
+          <div className="border-t-4 border-indigo-500 opacity-70 my-16 mx-10 rounded-sm"></div>
 
-          <ProfileCard
+          <Card
+            type='profile'
             title='Education'
-            path='../images/ATU.png'
+            path='../images/profile/ATU.png'
             description={info.education?.atu}
           />
 
-          <ProfileCard
-            path='../images/ARNG.png'
+          <Card
+            type='profile'
+            path='../images/profile/ARNG.png'
             description={info.education?.ngar}
           />
         </main>
 
 
         <footer className="mt-20 mb-5 text-sm text-gray-400 text-center">
-          &copy; 2025 Brandon Hurt
+          2025 Brandon Hurt
         </footer>
 
 

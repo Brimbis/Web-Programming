@@ -18,32 +18,33 @@ export default function AboutMe() {
     <div className="min-h-screen w-full bg-gray-800 flex justify-center px-4">
       <div className="font-sans text-blue-100 flex flex-col items-center max-w-4xl w-full">
         
+
         <header className="bg-indigo-800 text-5xl mt-20 w-full text-center rounded-xl shadow-xl p-3 border border-indigo-700">
           <img 
             className="h-40 w-40 object-cover rounded-full mx-auto shadow-lg hover:scale-105 transition-transform duration-300" 
-            src="./src/images/profile-image.png" 
-            alt="profile" 
+            src="../public/images/profile-image.png"
+            alt="profile"
           />
           <h1 className="mt-6 mb-6 text-blue-100 font-semibold text-5xl tracking-wide">{info.name}</h1>
           <div className="flex justify-center space-x-6 mt-4">
             <Logo
               link={info.contactInfo?.linkedin}
-              image="./src/images/linkedin-logo.png"
+              image="../public/images/linkedin-logo.png"
               styling="hover:opacity-80 h-8 transition-transform duration-300 hover:scale-110"
             />
             <Logo
               link={info.contactInfo?.github}
-              image="./src/images/github-logo.png"
+              image="../public/images/github-logo.png"
               styling="hover:opacity-80 h-8 transition-transform duration-300 hover:scale-110"
             />
             <Logo
               link={info.contactInfo?.discord}
-              image="./src/images/discord-logo.png"
+              image="../public/images/discord-logo.png"
               styling="hover:opacity-80 h-9 transition-transform duration-300 hover:scale-110"
             />
             <Logo
               link={info.contactInfo?.email}
-              image="./src/images/gmail-logo.png"
+              image="../public/images/gmail-logo.png"
               styling="hover:opacity-80 h-10 transition-transform duration-300 hover:scale-110"
             />
           </div>
@@ -59,14 +60,13 @@ export default function AboutMe() {
 
             <div className="border-t-4 border-indigo-500 opacity-70 my-16 mx-4 rounded-sm"></div>
 
-
             <h2 className="text-4xl font-bold mb-10 text-center text-indigo-100">Education</h2>
 
             <div className="flex flex-col items-center space-y-14">
               <div className="text-center max-w-3xl">
                 <Logo
                   link=""
-                  image="./src/images/ATU.png"
+                  image="../public/images/ATU.png"
                   styling="h-24 mx-auto mb-4 transition-transform duration-300 hover:scale-105"
                 />
                 <p
@@ -78,7 +78,7 @@ export default function AboutMe() {
               <div className="text-center max-w-3xl">
                 <Logo
                   link=""
-                  image="./src/images/ARNG.png"
+                  image="../public/images/ARNG.png"
                   styling="h-30 mx-auto mb-4 transition-transform duration-300 hover:scale-105"
                 />
                 <p
@@ -93,6 +93,8 @@ export default function AboutMe() {
         <footer className="mt-10 mb-5 text-sm text-gray-400 text-center">
           &copy; 2025 Brandon Hurt
         </footer>
+
+
       </div>
     </div>
   );

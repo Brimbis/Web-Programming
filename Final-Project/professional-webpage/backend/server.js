@@ -23,27 +23,62 @@ mongoose.connect('mongodb://localhost:27017/profile_db', {
     console.error('MongoDB Error', err);
 });
 
-// Define Schema and Model
+// Define Schemas and Models
 
-const profileSchema = new mongoose.Schema({
+const infoSchema = new mongoose.Schema({
     name: String, 
     age: Number, 
     interests: Array, 
     biography: String, 
     education: Object, 
-    contactInfo: Object
+    contactInfo: Object, 
 });
 
-const Profile = mongoose.model('info', profileSchema, 'info');
+const projectSchema = new mongoose.Schema({
+    name: String, 
+    description: String,
+    technologies: Array, 
+    date: Date, 
+});
+
+const experienceSchema = new mongoose.Schema({
+    name: String, 
+    description: String, 
+    DateStart: Date, 
+    DateEnd: Date, 
+    Order: Number, 
+});
+
+const Info = mongoose.model('info', infoSchema, 'info');
+const Projects = mongoose.model('projects', projectSchema, 'projects');
+const Experience = mongoose.model('experience', experienceSchema, 'experience');
 
 // Add Routes
 
 app.get('/info', async (req, res) => {
     try {
-        const info = await Profile.findOne();
+        const info = await Info.findOne();
         res.json(info);
     } catch(err) {
-        res.status(500).json({message: 'Failed to fetch posts.'});
+        res.status(500).json({message: 'Failed to fetch info.'});
+    }
+});
+
+app.get('/projects', async (req, res) => {
+    try {
+        const info = await Projects.find();
+        res.json(info);
+    } catch(err) {
+        res.status(500).json({message: 'Failed to fetch projects.'});
+    }
+});
+
+app.get('/experience', async (req, res) => {
+    try {
+        const info = await Experience.find();
+        res.json(info);
+    } catch(err) {
+        res.status(500).json({message: 'Failed to fetch experience.'});
     }
 });
 

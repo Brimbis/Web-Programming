@@ -9,7 +9,9 @@ export default function Projects() {
     useEffect(() => {
         axios.get('http://localhost:5000/projects')
             .then(res => {
-                setProjects(res.data);
+                // Sort Projects by date
+                const sortedProjects = res.data.sort((a, b) => new Date(b.date) - new Date(a.date));
+                setProjects(sortedProjects);
             })
             .catch(err => console.error('Error fetching projects:', err));
     }, []);
@@ -19,7 +21,6 @@ export default function Projects() {
             <div className="font-sans text-blue-100 flex flex-col items-center max-w-5xl w-full py-10">
                 <h2 className="text-4xl font-bold mb-10">Projects</h2>
         
-                {/* Map through projects */}
                 {projects.map((project, index) => (
                 <Card
                     key={index}

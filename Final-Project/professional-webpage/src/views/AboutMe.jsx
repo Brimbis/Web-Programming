@@ -22,29 +22,29 @@ export default function AboutMe() {
 
         <header className="bg-indigo-800 text-5xl mt-20 w-full text-center rounded-xl shadow-xl p-3 border border-indigo-700">
           <Logo
-            path='../images/profile/profile-image.jpeg'
+            path='/images/profile/profile-image.jpeg'
             styling='profile'
           />
           <h1 className="mt-6 mb-6 text-blue-100 font-semibold text-5xl tracking-wide">{info.name}</h1>
           <div className="flex justify-center space-x-6 mt-4">
             <Logo
               link={info.contactInfo?.linkedin}
-              path="../images/profile/linkedin-logo.png"
+              path="/images/profile/linkedin-logo.png"
               styling="link"
             />
             <Logo
               link={info.contactInfo?.github}
-              path="../images/profile/github-logo.png"
+              path="/images/profile/github-logo.png"
               styling="link"
             />
             <Logo
               link={info.contactInfo?.discord}
-              path="../images/profile/discord-logo.png"
+              path="/images/profile/discord-logo.png"
               styling="link"
             />
             <Logo
               link={info.contactInfo?.email}
-              path="../images/profile/gmail-logo.png"
+              path="/images/profile/gmail-logo.png"
               styling="link"
             />
           </div>
@@ -64,13 +64,13 @@ export default function AboutMe() {
           <Card
             type='profile'
             title='Education'
-            path='../images/profile/ATU.png'
+            path='/images/profile/ATU.png'
             description={info.education?.atu}
           />
 
           <Card
             type='profile'
-            path='../images/profile/ARNG.png'
+            path='/images/profile/ARNG.png'
             description={info.education?.ngar}
           />
         </main>

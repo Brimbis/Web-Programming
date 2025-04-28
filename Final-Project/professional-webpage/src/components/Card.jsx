@@ -15,6 +15,15 @@ export default function Card({
 }) {
 
     const [selectedImage, setSelectedImage] = useState(null);
+    const [isClosing, setIsClosing] = useState(false);
+
+    const handleCloseModal = () => {
+        setIsClosing(true);
+        setTimeout(() => {
+            setSelectedImage(null);
+            setIsClosing(false);
+        }, 300);
+    };
 
     // -- PROFILE -- 
 
@@ -43,7 +52,7 @@ export default function Card({
 
     else if (type === 'project') {
         return (
-            <div className="relative bg-indigo-900/60 backdrop-blur-md rounded-2xl shadow-2xl p-8 mb-10 flex flex-col items-center space-y-6 transition-all duration-500 transform hover:shadow-3xl max-w-5xl">
+            <div className="relative bg-indigo-900/60 backdrop-blur-md rounded-2xl shadow-2xl p-8 mb-10 flex flex-col items-center space-y-6 transition-all transform hover:shadow-3xl max-w-5xl">
     
                 <h2 className="text-3xl font-bold text-indigo-100">{title}</h2>
             
@@ -73,18 +82,20 @@ export default function Card({
                     </div>
 
                     {selectedImage && (
-                        <div 
-                            className="absolute top-0 left-0 w-full h-full bg-black/70 flex justify-center items-center z-50 backdrop-blur-sm animate-fadeIn rounded-2xl cursor-zoom-out"
-                            onClick={() => setSelectedImage(null)}
-                        >
-                            <div className="relative animate-zoomIn">
-                                <img 
-                                    src={selectedImage} 
-                                    alt="Expanded" 
-                                    className="max-w-[90vw] max-h-[70vh] rounded-lg object-cover"
-                                />
-                            </div>
+                    <div 
+                        className={`absolute top-0 left-0 w-full h-full bg-gray/50 flex justify-center items-center z-50 backdrop-blur-sm rounded-2xl cursor-zoom-out ${
+                            isClosing ? 'animate-fadeOut' : 'animate-fadeIn'
+                        }`}
+                        onClick={handleCloseModal}
+                    >
+                        <div className={`relative ${isClosing ? 'animate-zoomOut' : 'animate-zoomIn'}`}>
+                            <img 
+                                src={selectedImage} 
+                                alt="Expanded" 
+                                className="max-w-[90vw] max-h-[70vh] rounded-lg object-cover"
+                            />
                         </div>
+                    </div>
                     )}
                 </>
                 )}
@@ -94,7 +105,7 @@ export default function Card({
                         {technologies.map((tech, index) => (
                             <span 
                                 key={index} 
-                                className="px-3 py-1 bg-indigo-700/80 rounded-full text-indigo-100 text-sm shadow hover:bg-indigo-700"
+                                className="px-3 py-1 bg-indigo-700/80 rounded-md text-indigo-100 text-sm shadow hover:bg-indigo-700"
                             >
                                 {tech}
                             </span>
@@ -107,7 +118,7 @@ export default function Card({
                         href={link} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="mt-6 inline-block bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-2 rounded-full transition-colors"
+                        className="mt-6 inline-block bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-2 rounded-md"
                     >
                         View Project
                     </a>
@@ -119,6 +130,14 @@ export default function Card({
                     </p>
                 )}
             </div>
+        );
+    }
+
+    else if (type === 'experience') {
+        return (
+            <>
+
+            </>
         );
     }
 

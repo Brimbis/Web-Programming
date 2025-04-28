@@ -1,9 +1,9 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import '../styles/App.css';
 import axios from 'axios';
 
 export default function Projects() {
-    const [projects, setProjects] = useState('');
+    const [projects, setProjects] = useState([]);
 
     useEffect(() => {
         axios.get('http://localhost:5000/projects')

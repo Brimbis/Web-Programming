@@ -2,6 +2,7 @@ import {useState} from 'react';
 import '../styles/App.css';
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 import BackToTopButton from '../components/BackToTopButton.jsx';
+import Footer from '../components/Footer.jsx';
 import AboutMe from '../views/AboutMe.jsx';
 import Projects from '../views/Projects.jsx';
 import Experience from '../views/Experience.jsx';
@@ -75,7 +76,7 @@ export default function App() {
           <Route path="/contact" element={<ContactInfo/>}/>
         </Routes>
       </div>
-
+      <Footer/>
       <BackToTopButton />
     </Router>
   );

@@ -50,6 +50,7 @@ export default function AboutMe() {
           </div>
         </header>
 
+
         <main className="w-full bg-indigo-900/80 backdrop-blur-sm rounded-xl shadow-xl p-10 mt-14 text-left text-blue-100 max-w-5xl mx-auto">
           
           <Card
@@ -74,12 +75,6 @@ export default function AboutMe() {
             description={info.education?.ngar}
           />
         </main>
-
-
-        <footer className="mt-20 mb-5 text-sm text-gray-400 text-center">
-          2025 Brandon Hurt
-        </footer>
-
 
       </div>
     </div>

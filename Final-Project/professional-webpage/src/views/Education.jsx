@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import '../styles/App.css';
 import LoadingBar from '../components/LoadingBar';
+import Card from '../components/Card';
 import axios from 'axios';
 
 export default function Education() {
@@ -16,7 +17,8 @@ export default function Education() {
         axios.get('http://localhost:5000/education')
             .then(res => {
                 clearTimeout(timeout);
-                setEducation(res.data);
+                const sortedEducation = res.data.sort((a, b) => new Date(b.date) - new Date(a.date));
+                setEducation(sortedEducation);
                 setLoading(false);
             })
             .catch(err => {
@@ -43,6 +45,18 @@ export default function Education() {
         <div className="min-h-screen w-full bg-gray-800 flex justify-center px-4">
             <div className="font-sans text-blue-100 flex flex-col items-center max-w-5xl w-full py-10">
                 <h2 className="text-4xl font-bold mb-10">Education</h2>
+
+                {education.map((education, index) => (
+                  <Card
+                      key={index}
+                      type="education"
+                      title={education.title}
+                      description={education.description}
+                      image={education.image}
+                      date={education.date}
+                      progress={education.progress}
+                  />
+                ))}
             </div>
         </div>
         </>

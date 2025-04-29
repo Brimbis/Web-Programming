@@ -87,18 +87,6 @@ export default function AboutMe() {
           
           <div className="border-t-4 border-indigo-500 opacity-70 my-16 mx-10 rounded-sm"></div>
 
-          <Card
-            type='profile'
-            title='Education'
-            image='/images/profile/ATU.png'
-            description={info.education?.atu}
-          />
-
-          <Card
-            type='profile'
-            image='/images/profile/ARNG.png'
-            description={info.education?.ngar}
-          />
         </main>
 
       </div>

@@ -48,16 +48,16 @@ export default function Projects() {
                     <h2 className="text-4xl font-bold mb-10">Projects</h2>
             
                     {projects.map((project, index) => (
-                    <Card
-                        key={index}
-                        type="project"
-                        title={project.name}
-                        description={project.description}
-                        images={project.images}
-                        date={project.date}
-                        tech={project.tech}
-                        link={project.link}
-                    />
+                      <Card
+                          key={index}
+                          type="project"
+                          title={project.name}
+                          description={project.description}
+                          images={project.images}
+                          date={project.date}
+                          tech={project.tech}
+                          link={project.link}
+                      />
                     ))}
                 </div>
             </div>

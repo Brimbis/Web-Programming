@@ -42,8 +42,11 @@ const projectSchema = new mongoose.Schema({
 });
 
 const educationSchema = new mongoose.Schema({
-    name: String, 
+    title: String, 
     description: String, 
+    image: String, 
+    date: Date, 
+    progress: Number, 
 });
 
 const skillsSchema = new mongoose.Schema({
@@ -55,7 +58,7 @@ const skillsSchema = new mongoose.Schema({
 
 const Info = mongoose.model('info', infoSchema, 'info');
 const Projects = mongoose.model('projects', projectSchema, 'projects');
-const Education = mongoose.model('experience', educationSchema, 'experience');
+const Education = mongoose.model('education', educationSchema, 'education');
 const Skills = mongoose.model('skills', skillsSchema, 'skills');
 
 // Add Routes

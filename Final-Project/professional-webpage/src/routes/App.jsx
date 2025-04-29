@@ -1,4 +1,3 @@
-import {useState} from 'react'; 
 import '../styles/App.css';
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 import BackToTopButton from '../components/BackToTopButton.jsx';
@@ -21,62 +20,32 @@ export default function App() {
             <NavLink
               to="/"
               end
-              className={({ isActive }) =>
-                isActive 
-                  ? navstyling
-                  : navstylingHover
-              }
-            >
-              About Me
-            </NavLink>
+              className={({isActive}) => isActive ? navstyling : navstylingHover}
+            >About Me</NavLink>
           </li>
           <li>
             <NavLink
               to="/projects"
-              className={({ isActive }) =>
-                isActive 
-                  ? navstyling
-                  : navstylingHover
-              }
-            >
-              Projects
-            </NavLink>
+              className={({isActive}) => isActive ? navstyling : navstylingHover}
+            >Projects</NavLink>
           </li>
           <li>
             <NavLink
               to="/education"
-              className={({ isActive }) =>
-                isActive 
-                  ? navstyling
-                  : navstylingHover
-              }
-            >
-              Education
-            </NavLink>
+              className={({isActive}) => isActive ? navstyling : navstylingHover}
+            >Education</NavLink>
           </li>
           <li>
             <NavLink
               to="/skills"
-              className={({ isActive }) =>
-                isActive 
-                  ? navstyling
-                  : navstylingHover
-              }
-            >
-              Skills & Tech
-            </NavLink>
+              className={({isActive}) => isActive ? navstyling : navstylingHover}
+            >Skills & Tech</NavLink>
           </li>
           <li>
             <NavLink
               to="/contact"
-              className={({ isActive }) =>
-                isActive 
-                  ? navstyling
-                  : navstylingHover
-              }
-            >
-              Contact Info
-            </NavLink>
+              className={({isActive}) => isActive ? navstyling : navstylingHover}
+            >Contact Info</NavLink>
           </li>
         </ul>
       </nav>
@@ -91,7 +60,7 @@ export default function App() {
         </Routes>
       </div>
       <Footer/>
-      <BackToTopButton />
+      <BackToTopButton/>
     </Router>
   );
 }

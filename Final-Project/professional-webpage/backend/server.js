@@ -13,21 +13,21 @@ app.use(express.json());
 // Connect to MongoDB
 
 mongoose.connect('mongodb://localhost:27017/profile_db', {
-    useNewUrlParser: true, 
-    useUnifiedTopology: true, 
+  useNewUrlParser: true, 
+  useUnifiedTopology: true, 
 })
 .then(() => {
-    console.log('MongoDB Connected!');
+  console.log('MongoDB Connected!');
 })
 .catch((err) => {
-    console.error('MongoDB Error', err);
+  console.error('MongoDB Error', err);
 });
 
 // Define Schemas and Models
 
 const infoSchema = new mongoose.Schema({
     name: String, 
-    age: Number, 
+    birthDate: Date, 
     interests: Array, 
     biography: String, 
     education: Object, 
@@ -64,39 +64,39 @@ const Skills = mongoose.model('skills', skillsSchema, 'skills');
 // Add Routes
 
 app.get('/info', async (req, res) => {
-    try {
-        const info = await Info.findOne();
-        res.json(info);
-    } catch(err) {
-        res.status(500).json({message: 'Failed to fetch info.'});
-    }
+  try {
+    const info = await Info.findOne();
+    res.json(info);
+  } catch(err) {
+    res.status(500).json({message: 'Failed to fetch info.'});
+  }
 });
 
 app.get('/projects', async (req, res) => {
-    try {
-        const info = await Projects.find();
-        res.json(info);
-    } catch(err) {
-        res.status(500).json({message: 'Failed to fetch projects.'});
-    }
+  try {
+    const info = await Projects.find();
+    res.json(info);
+  } catch(err) {
+    res.status(500).json({message: 'Failed to fetch projects.'});
+  }
 });
 
 app.get('/education', async (req, res) => {
-    try {
-        const info = await Education.find();
-        res.json(info);
-    } catch(err) {
-        res.status(500).json({message: 'Failed to fetch education.'});
-    }
+  try {
+    const info = await Education.find();
+    res.json(info);
+  } catch(err) {
+    res.status(500).json({message: 'Failed to fetch education.'});
+  }
 });
 
 app.get('/skills', async (req, res) => {
-    try {
-        const info = await Skills.find();
-        res.json(info);
-    } catch(err) {
-        res.status(500).json({message: 'Failed to fetch skills.'});
-    }
+  try {
+    const info = await Skills.find();
+    res.json(info);
+  } catch(err) {
+    res.status(500).json({message: 'Failed to fetch skills.'});
+  }
 });
 
 // Start server

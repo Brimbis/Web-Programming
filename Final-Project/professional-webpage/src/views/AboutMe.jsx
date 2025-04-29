@@ -81,11 +81,9 @@ export default function AboutMe() {
           <Card
             type='profile'
             title='Biography'
-            altTitle={`Age: ${info.age}`}
+            birthDate={info.birthDate}
             description={info.biography}
           />
-          
-          <div className="border-t-4 border-indigo-500 opacity-70 my-16 mx-10 rounded-sm"></div>
 
         </main>
 

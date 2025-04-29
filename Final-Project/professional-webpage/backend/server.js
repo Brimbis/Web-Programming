@@ -41,17 +41,22 @@ const projectSchema = new mongoose.Schema({
     date: Date, 
 });
 
-const experienceSchema = new mongoose.Schema({
+const educationSchema = new mongoose.Schema({
     name: String, 
     description: String, 
-    DateStart: Date, 
-    DateEnd: Date, 
-    Order: Number, 
 });
+
+const skillsSchema = new mongoose.Schema({
+    tech: String, 
+    link: String, 
+    image: String, 
+    date: Date, 
+})
 
 const Info = mongoose.model('info', infoSchema, 'info');
 const Projects = mongoose.model('projects', projectSchema, 'projects');
-const Experience = mongoose.model('experience', experienceSchema, 'experience');
+const Education = mongoose.model('experience', educationSchema, 'experience');
+const Skills = mongoose.model('skills', skillsSchema, 'skills');
 
 // Add Routes
 
@@ -73,12 +78,21 @@ app.get('/projects', async (req, res) => {
     }
 });
 
-app.get('/experience', async (req, res) => {
+app.get('/education', async (req, res) => {
     try {
-        const info = await Experience.find();
+        const info = await Education.find();
         res.json(info);
     } catch(err) {
-        res.status(500).json({message: 'Failed to fetch experience.'});
+        res.status(500).json({message: 'Failed to fetch education.'});
+    }
+});
+
+app.get('/skills', async (req, res) => {
+    try {
+        const info = await Skills.find();
+        res.json(info);
+    } catch(err) {
+        res.status(500).json({message: 'Failed to fetch skills.'});
     }
 });
 

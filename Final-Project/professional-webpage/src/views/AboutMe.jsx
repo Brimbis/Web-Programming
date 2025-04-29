@@ -2,18 +2,43 @@ import { useState, useEffect } from 'react';
 import '../styles/App.css';
 import Logo from '../components/Logo.jsx';
 import Card from '../components/Card.jsx';
+import LoadingBar from '../components/LoadingBar.jsx';
 import axios from 'axios';
 
 export default function AboutMe() {
+  const [loading, setLoading] = useState(true);
+  const [hasTimedOut, setHasTimedOut] = useState(false);
   const [info, setInfo] = useState('');
 
   useEffect(() => {
+    const timeout = setTimeout(() => {
+      setHasTimedOut(true);
+    }, 1000);
+
     axios.get('http://localhost:5000/info')
       .then(res => {
+        clearTimeout(timeout);
         setInfo(res.data);
+        setLoading(false);
       })
-      .catch(err => console.error('Error fetching info:', err));
+      .catch(err => {
+        clearTimeout(timeout);
+        console.error('Error fetching info:', err);
+        setLoading(false);
+      });
   }, []);
+
+  if (loading && !hasTimedOut) {
+    return (
+      <LoadingBar type='loading'/>
+    );
+  }
+
+  if (hasTimedOut || !info) {
+    return (
+      <LoadingBar type='failed'/>
+    );
+  }
 
   return (
     <div className="min-h-screen w-full bg-gray-800 flex justify-center px-4">
@@ -22,29 +47,29 @@ export default function AboutMe() {
 
         <header className="bg-indigo-800 text-5xl mt-20 w-full text-center rounded-xl shadow-xl p-3 border border-indigo-700">
           <Logo
-            path='/images/profile/profile-image.jpeg'
+            image='/images/profile/profile-image.jpeg'
             styling='profile'
           />
           <h1 className="mt-6 mb-6 text-blue-100 font-semibold text-5xl tracking-wide">{info.name}</h1>
           <div className="flex justify-center space-x-6 mt-4">
             <Logo
               link={info.contactInfo?.linkedin}
-              path="/images/profile/linkedin-logo.png"
+              image="/images/profile/linkedin-logo.png"
               styling="link"
             />
             <Logo
               link={info.contactInfo?.github}
-              path="/images/profile/github-logo.png"
+              image="/images/profile/github-logo.png"
               styling="link"
             />
             <Logo
               link={info.contactInfo?.discord}
-              path="/images/profile/discord-logo.png"
+              image="/images/profile/discord-logo.png"
               styling="link"
             />
             <Logo
               link={info.contactInfo?.email}
-              path="/images/profile/gmail-logo.png"
+              image="/images/profile/gmail-logo.png"
               styling="link"
             />
           </div>
@@ -65,13 +90,13 @@ export default function AboutMe() {
           <Card
             type='profile'
             title='Education'
-            path='/images/profile/ATU.png'
+            image='/images/profile/ATU.png'
             description={info.education?.atu}
           />
 
           <Card
             type='profile'
-            path='/images/profile/ARNG.png'
+            image='/images/profile/ARNG.png'
             description={info.education?.ngar}
           />
         </main>

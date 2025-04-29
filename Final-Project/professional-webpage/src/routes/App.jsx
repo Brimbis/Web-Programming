@@ -5,12 +5,13 @@ import BackToTopButton from '../components/BackToTopButton.jsx';
 import Footer from '../components/Footer.jsx';
 import AboutMe from '../views/AboutMe.jsx';
 import Projects from '../views/Projects.jsx';
-import Experience from '../views/Experience.jsx';
+import Education from '../views/Education.jsx';
+import Skills from '../views/Skills.jsx';
 import ContactInfo from '../views/ContactInfo.jsx';
 
 export default function App() {
-  const [navstyling, setNavstyling] = useState('bg-indigo-700 text-white font-semibold px-4 py-2 rounded-md transition');
-  const [navstylingHover, setNavstylingHover] = useState('hover:bg-gray-800 px-4 py-2 rounded-md transition');
+  const navstyling = 'bg-indigo-700 text-white font-semibold px-4 py-2 rounded-md transition';
+  const navstylingHover = 'hover:bg-gray-800 px-4 py-2 rounded-md transition';
 
   return (
     <Router>
@@ -43,14 +44,26 @@ export default function App() {
           </li>
           <li>
             <NavLink
-              to="/experience"
+              to="/education"
               className={({ isActive }) =>
                 isActive 
                   ? navstyling
                   : navstylingHover
               }
             >
-              Experience
+              Education
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/skills"
+              className={({ isActive }) =>
+                isActive 
+                  ? navstyling
+                  : navstylingHover
+              }
+            >
+              Skills & Tech
             </NavLink>
           </li>
           <li>
@@ -72,7 +85,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<AboutMe/>}/>
           <Route path="/projects" element={<Projects/>}/>
-          <Route path="/experience" element={<Experience/>}/>
+          <Route path="/education" element={<Education/>}/>
+          <Route path="/skills" element={<Skills/>}/>
           <Route path="/contact" element={<ContactInfo/>}/>
         </Routes>
       </div>

@@ -6,9 +6,9 @@ export default function Card({
     type, 
     title, 
     altTitle, 
-    path, 
-    description,
-    technologies, 
+    image, 
+    description, 
+    tech, 
     date, 
     link, 
     images, 
@@ -32,8 +32,8 @@ export default function Card({
             <>
                 <h2 className="text-4xl font-bold mb-10 text-center text-indigo-100">{title}</h2>
 
-                {path && (
-                    <Logo path={path} styling="image-small" />
+                {image && (
+                    <Logo image={image} styling="image-small" />
                 )}
 
                 {altTitle && (
@@ -52,7 +52,7 @@ export default function Card({
 
     else if (type === 'project') {
         return (
-            <div className="relative bg-indigo-900/60 backdrop-blur-md rounded-2xl shadow-2xl p-8 mb-10 flex flex-col items-center space-y-6 transition-all transform hover:shadow-3xl max-w-5xl">
+            <div className="relative bg-indigo-800/60 backdrop-blur-md rounded-2xl shadow-2xl p-8 mb-10 flex flex-col items-center space-y-6 transition-all transform hover:shadow-3xl max-w-5xl">
     
                 <h2 className="text-3xl font-bold text-indigo-100">{title}</h2>
             
@@ -100,9 +100,9 @@ export default function Card({
                 </>
                 )}
 
-                {technologies?.length > 0 && (
+                {tech?.length > 0 && (
                     <div className="flex flex-wrap justify-center gap-3 mt-4">
-                        {technologies.map((tech, index) => (
+                        {tech.map((tech, index) => (
                             <span 
                                 key={index} 
                                 className="px-3 py-1 bg-indigo-700/80 rounded-md text-indigo-100 text-sm shadow hover:bg-indigo-700"
@@ -133,11 +133,25 @@ export default function Card({
         );
     }
 
-    else if (type === 'experience') {
+    else if (type === 'education') {
         return (
             <>
 
             </>
+        );
+    }
+
+    else if (type === 'skill') {
+        return (
+            <div className="bg-indigo-800 rounded-xl shadow-lg p-6 mb-8 flex flex-col items-center text-center hover:scale-105 transition-transform duration-300">
+                <Logo
+                    styling='image-small'
+                    image={image}
+                    link={link}
+                />
+                <h2 className="text-2xl font-semibold text-blue-100 mb-2">{tech}</h2>
+                <p className="text-blue-300 text-sm">{new Date(date).toLocaleDateString()}</p>
+            </div>
         );
     }
 

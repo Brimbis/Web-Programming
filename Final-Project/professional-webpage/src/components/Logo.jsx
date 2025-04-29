@@ -1,12 +1,12 @@
 import {useState, useEffect} from 'react';
 import '../styles/App.css';
 
-export default function Logo({link, path, styling}) {
+export default function Logo({link, image, styling}) {
     const [style, setStyle] = useState('');
 
     useEffect(() => {
         if (styling == "link") {
-            setStyle('hover:opacity-80 h-10 transition-transform duration-300 hover:scale-110');
+            setStyle('hover:opacity-80 h-8 transition-transform duration-300 hover:scale-110');
         }
         else if (styling == "image-small") {
             setStyle('h-30 mx-auto mb-10 transition-transform duration-300 hover:scale-105');
@@ -20,10 +20,10 @@ export default function Logo({link, path, styling}) {
         <>
             {link !== '' ? ( // Ternary Operator for image switching
                 <a href={link} title={link}>
-                    <img src={path} className={style}/>
+                    <img src={image} className={style}/>
                 </a>
             ) : (
-                <img src={path} className={style}/>
+                <img src={image} className={style}/>
             )}
         </>
     );

@@ -3,25 +3,25 @@ import '../styles/App.css';
 import LoadingBar from '../components/LoadingBar';
 import axios from 'axios';
 
-export default function ContactInfo() {
+export default function Education() {
     const [loading, setLoading] = useState(true);
     const [hasTimedOut, setHasTimedOut] = useState(false);
-    const [contact, setContact] = useState('');
+    const [education, setEducation] = useState('');
 
     useEffect(() => {
         const timeout = setTimeout(() => {
             setHasTimedOut(true);
         }, 1000);
 
-        axios.get('http://localhost:5000/info')
+        axios.get('http://localhost:5000/education')
             .then(res => {
                 clearTimeout(timeout);
-                setContact(res.data);
+                setEducation(res.data);
                 setLoading(false);
             })
             .catch(err => {
                 clearTimeout(timeout);
-                console.error('Error fetching contact:', err);
+                console.error('Error fetching education:', err);
                 setLoading(false);
             });
     }, []);
@@ -32,7 +32,7 @@ export default function ContactInfo() {
         );
     } 
 
-    if (hasTimedOut || !contact) {
+    if (hasTimedOut || !education) {
         return (
             <LoadingBar type='failed'/>
         );
@@ -42,7 +42,7 @@ export default function ContactInfo() {
         <>
         <div className="min-h-screen w-full bg-gray-800 flex justify-center px-4">
             <div className="font-sans text-blue-100 flex flex-col items-center max-w-5xl w-full py-10">
-                <h2 className="text-4xl font-bold mb-10">Contact Me!</h2>
+                <h2 className="text-4xl font-bold mb-10">Education</h2>
             </div>
         </div>
         </>

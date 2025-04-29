@@ -90,7 +90,7 @@ function projectCard({title, description, images, tech, link, date}) {
   };
 
   return (
-    <div className="relative bg-indigo-800/60 backdrop-blur-md rounded-2xl shadow-2xl p-6 mb-10 flex flex-col items-center space-y-6 transition-all transform hover:shadow-3xl max-w-4xl">
+    <div className="relative bg-indigo-800/60 backdrop-blur-md rounded-2xl shadow-2xl p-6 mb-10 flex flex-col items-center space-y-6 transition-all transform hover:shadow-3xl max-w-4xl hover:scale-102">
 
       <h2 className="text-3xl font-bold text-indigo-100">{title}</h2>
     

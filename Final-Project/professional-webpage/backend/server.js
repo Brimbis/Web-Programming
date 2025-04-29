@@ -26,40 +26,48 @@ mongoose.connect('mongodb://localhost:27017/profile_db', {
 // Define Schemas and Models
 
 const infoSchema = new mongoose.Schema({
-    name: String, 
-    birthDate: Date, 
-    interests: Array, 
-    biography: String, 
-    education: Object, 
-    contactInfo: Object, 
+  name: String, 
+  birthDate: Date, 
+  interests: Array, 
+  biography: String, 
+  education: Object, 
+  contactInfo: Object, 
 });
 
 const projectSchema = new mongoose.Schema({
-    name: String, 
-    description: String,
-    technologies: Array, 
-    date: Date, 
+  name: String, 
+  description: String,
+  technologies: Array, 
+  date: Date, 
 });
 
 const educationSchema = new mongoose.Schema({
-    title: String, 
-    description: String, 
-    image: String, 
-    date: Date, 
-    progress: Number, 
+  title: String, 
+  description: String, 
+  image: String, 
+  date: Date, 
+  progress: Number, 
 });
 
 const skillsSchema = new mongoose.Schema({
-    tech: String, 
-    link: String, 
-    image: String, 
-    date: Date, 
-})
+  tech: String, 
+  link: String, 
+  image: String, 
+  date: Date, 
+});
+
+const messageSchema = new mongoose.Schema({
+  name: String, 
+  email: String, 
+  message: String, 
+});
 
 const Info = mongoose.model('info', infoSchema, 'info');
 const Projects = mongoose.model('projects', projectSchema, 'projects');
 const Education = mongoose.model('education', educationSchema, 'education');
 const Skills = mongoose.model('skills', skillsSchema, 'skills');
+const Message = mongoose.model('messages', messageSchema, 'messages');
+
 
 // Add Routes
 
@@ -96,6 +104,19 @@ app.get('/skills', async (req, res) => {
     res.json(info);
   } catch(err) {
     res.status(500).json({message: 'Failed to fetch skills.'});
+  }
+});
+
+// Post request to receive messages
+
+app.post('/messages', async (req, res) => {
+  try {
+      const {name, email, message} = req.body;
+      const sentMessage = new Message({name, email, message});
+      await sentMessage.save();
+      res.status(200).json({message:'Message sent successfully.'});
+  } catch(err) {
+      res.status(500).json({message: 'Failed to send message.'});
   }
 });
 

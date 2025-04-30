@@ -13,6 +13,7 @@ export default function Card({
   date, 
   link, 
   progress, 
+  institution, 
 }) {
 
   switch (type) {
@@ -21,7 +22,7 @@ export default function Card({
     case 'project':
       return projectCard({title, description, images, tech, link, date});
     case 'education':
-      return educationCard({title, description, image, date, progress});
+      return educationCard({title, description, image, date, progress, institution});
     case 'skill':
       return skillCard({image, link, tech, date});
     default:
@@ -169,7 +170,7 @@ function projectCard({title, description, images, tech, link, date}) {
 
 // -- Education Card Layout --
 
-function educationCard({ title, description, image, date, progress }) {
+function educationCard({title, description, image, date, progress, institution}) {
   const radius = 36;
   const stroke = 6;
   const normalizedRadius = radius - stroke * 0.5;
@@ -178,7 +179,9 @@ function educationCard({ title, description, image, date, progress }) {
 
   return (
     <div className="relative bg-indigo-800/60 backdrop-blur-md rounded-2xl shadow-2xl p-8 mb-10 flex flex-col items-center text-center transition-transform hover:scale-105 max-w-3xl mx-auto">
-        
+
+      <h2 className="text-3xl font-bold text-indigo-100 mb-2">{title}</h2>
+
       {image && (
         <img 
           src={image}
@@ -187,42 +190,44 @@ function educationCard({ title, description, image, date, progress }) {
         />
       )}
 
-      <h2 className="text-2xl font-bold text-indigo-100 mb-2">{title}</h2>
-      
+      <h3 className="text-xl font-bold text-indigo-200 mb-2">{institution}</h3>
+
       <p className="text-indigo-300 text-base mb-4 px-2 leading-relaxed">{description}</p>
 
       {typeof progress === 'number' && progress >= 0 && progress <= 1 && (
-        <div className="absolute top-4 left-4 w-20 h-20">
-          <svg
-            height="100%"
-            width="100%"
-            viewBox={`0 0 ${radius * 2} ${radius * 2}`}
-          >
-            <circle
-              stroke="#4c51bf"
-              fill="transparent"
-              strokeWidth={stroke}
-              r={normalizedRadius}
-              cx={radius}
-              cy={radius}
-            />
-            <circle
-              stroke="#a3bffa"
-              fill="transparent"
-              strokeWidth={stroke}
-              strokeLinecap="round"
-              strokeDasharray={`${circumference} ${circumference}`}
-              style={{
-                strokeDashoffset,
-                transition: 'stroke-dashoffset 0.5s',
-              }}
-              r={normalizedRadius}
-              cx={radius}
-              cy={radius}
-            />
-          </svg>
-          <div className="absolute inset-0 flex items-center justify-center text-indigo-100 text-s font-semibold">
+        <div className="hidden md:block">
+          <div className="absolute top-4 left-4 w-20 h-20">
+            <svg
+              height="100%"
+              width="100%"
+              viewBox={`0 0 ${radius * 2} ${radius * 2}`}
+            >
+              <circle
+                stroke="#4c51bf"
+                fill="transparent"
+                strokeWidth={stroke}
+                r={normalizedRadius}
+                cx={radius}
+                cy={radius}
+              />
+              <circle
+                stroke="#a3bffa"
+                fill="transparent"
+                strokeWidth={stroke}
+                strokeLinecap="round"
+                strokeDasharray={`${circumference} ${circumference}`}
+                style={{
+                  strokeDashoffset,
+                  transition: 'stroke-dashoffset 0.5s',
+                }}
+                r={normalizedRadius}
+                cx={radius}
+                cy={radius}
+              />
+            </svg>
+            <div className="absolute inset-0 flex items-center justify-center text-indigo-100 text-s font-semibold">
               {Math.round(progress * 100)}%
+            </div>
           </div>
         </div>
       )}

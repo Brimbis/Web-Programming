@@ -54,6 +54,7 @@ export default function Education() {
             image={education.image}
             date={education.date}
             progress={education.progress}
+            institution={education.institution}
           />
         ))}
       </div>
